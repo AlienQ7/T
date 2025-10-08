@@ -1,0 +1,238 @@
+/* =========================================================
+   style.css (V1.0 - Shared Application Styles)
+   ========================================================= */
+
+/* General Reset and Font */
+body {
+    font-family: 'Space Mono', monospace;
+    background-color: #0d0d0d;      /* COLOR_MAIN_BG */
+    color: #00ff99;                 /* COLOR_MAIN_TEXT */
+    margin: 0;
+    padding: 0;
+}
+* {
+    box-sizing: border-box;
+}
+
+/* Header and Navigation */
+.header-bar {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 10px 15px; 
+    background-color: #1a1a1a;      /* COLOR_HEADER_BG */
+    color: #fff; 
+    border-bottom: 2px solid #32CD32; /* COLOR_HEADER_ACCENT */
+    margin-bottom: 20px;
+}
+.header-menu { 
+    position: relative; 
+    z-index: 20; 
+} 
+.hamburger-btn {
+    background: none; 
+    color: #32CD32;             /* COLOR_HEADER_ACCENT */
+    border: 1px solid #32CD32;  /* COLOR_HEADER_ACCENT */
+    padding: 5px 10px; 
+    cursor: pointer; 
+    font-size: 20px; 
+    line-height: 1; 
+    border-radius: 4px;
+}
+.menu-dropdown {
+    display: none; 
+    position: absolute; 
+    top: 100%; 
+    right: 0; 
+    background-color: #333;             /* COLOR_DROPDOWN_BG */
+    border: 1px solid #ff0000;          /* COLOR_DROPDOWN_ALERT */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); 
+    z-index: 10; 
+    min-width: 200px; 
+    padding: 0;
+}
+.menu-dropdown.show { 
+    display: block; 
+}
+.menu-dropdown a, .menu-dropdown button {
+    display: block; 
+    width: 100%; 
+    text-align: left; 
+    padding: 10px 15px; 
+    background: #333;                   /* COLOR_DROPDOWN_BG */
+    border: none; 
+    cursor: pointer; 
+    color: #ff0000;                     /* COLOR_DROPDOWN_ALERT */
+    text-decoration: none; 
+    font-family: 'Space Mono', monospace; 
+    font-size: 14px;
+}
+.menu-dropdown a:hover, .menu-dropdown button:hover, .dropdown-sp-collected { 
+    background-color: #555; 
+}
+.dropdown-sp-collected { 
+    color: #00ff99 !important;          /* COLOR_MAIN_TEXT */
+    cursor: not-allowed !important; 
+}
+
+/* Rank and Stats */
+.rank-display { 
+    font-size: 16px; 
+    white-space: nowrap; 
+    font-weight: bold; 
+}
+.rank-label { 
+    color: #ff9900;                     /* COLOR_RANK_LABEL */
+    margin-right: 5px; 
+    font-weight: bold; 
+}
+.rank-title { 
+    color: #FFD700;                     /* COLOR_RANK_TITLE */
+    font-weight: bold; 
+    text-shadow: 0 0 5px #ff990080; 
+}
+.container { 
+    max-width: 600px; 
+    margin: 20px auto; 
+}
+.profile-container, .task-manager, .auth-container { 
+    padding: 20px; 
+    border: 1px solid #00ff9940; 
+    box-shadow: 0 0 10px #00ff9920; 
+    background-color: #282828;          /* COLOR_MODAL_BG */
+    margin-bottom: 20px; 
+}
+.stats-line { 
+    color: #0099ff; 
+}
+
+/* Auth/Input Styles */
+.auth-container h2 { 
+    color: #ff9900;                     /* COLOR_RANK_LABEL */
+}
+input[type="text"], input[type="password"], #new-task-input, #objective-input { 
+    width: 100%; 
+    padding: 10px; 
+    margin: 8px 0; 
+    box-sizing: border-box; 
+    background: #000; 
+    border: 1px solid #00ff99;          /* COLOR_MAIN_TEXT */
+    color: #00ff99;                     /* COLOR_MAIN_TEXT */
+}
+.auth-btn, .add-btn { 
+    background-color: #0099ff;          /* COLOR_BUTTON_ACTION */
+    color: white; 
+    padding: 10px 15px; 
+    border: none; 
+    cursor: pointer; 
+    width: 100%; 
+    margin-top: 10px; 
+}
+/* Objective Save Button */
+.objective-container { 
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 15px; 
+}
+.objective-container input { 
+    flex-grow: 1; 
+    margin-right: 5px; 
+}
+.objective-container button { 
+    padding: 10px 15px; 
+    background-color: #00ff99;          /* COLOR_BUTTON_SUCCESS */
+    color: #0d0d0d;                     /* COLOR_MAIN_BG */
+    font-weight: bold;
+    border: none; 
+    cursor: pointer; 
+}
+.objective-container button:hover { 
+    background-color: #00cc88; 
+} 
+
+/* Task List Styles */
+.task-slot { 
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 10px; 
+    padding: 8px; 
+    border: 1px solid #333; 
+    transition: all 0.3s; 
+    border-radius: 4px;
+}
+.task-slot.completed-slot { 
+    background-color: #00ff9910; 
+}
+.task-description-wrapper { 
+    flex-grow: 1; 
+    margin-left: 10px; 
+    display: flex; 
+    align-items: center; 
+}
+.task-description.completed { 
+    opacity: 0.5; 
+    color: #00ff99; 
+}
+.permanent-indicator { 
+    color: #FFD700;                     /* COLOR_RANK_TITLE */
+    margin-right: 8px; 
+    font-size: 1.1em; 
+    filter: drop-shadow(0 0 3px #FFD70099); 
+}
+.task-checkbox:checked { 
+    accent-color: #FFD700;              /* COLOR_RANK_TITLE */
+}
+
+/* Task Buttons */
+.toggle-btn, .remove-btn { 
+    background: none; 
+    color: #00ff99;                     /* COLOR_MAIN_TEXT */
+    border: 1px solid #00ff99;          /* COLOR_MAIN_TEXT */
+    padding: 3px 6px; 
+    cursor: pointer; 
+    margin-left: 5px; 
+    border-radius: 4px; 
+    font-size: 14px; 
+    line-height: 1; 
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+.remove-btn { 
+    color: #ff0000;                     /* COLOR_DROPDOWN_ALERT */
+    border-color: #ff0000;              /* COLOR_DROPDOWN_ALERT */
+}
+.remove-btn:hover { 
+    background-color: #ff0000; 
+    color: #0d0d0d;                     /* COLOR_MAIN_BG */
+}
+.permanent-btn[data-permanent="true"] { 
+    background-color: #ff9900;          /* COLOR_RANK_LABEL */
+    color: #0d0d0d;                     /* COLOR_MAIN_BG */
+    border-color: #ff9900; 
+}
+.permanent-btn[data-permanent="false"]:hover { 
+    background-color: #ff9900;
+}
+
+/* Add Task and SP Button */
+#new-task-input { 
+    width: 70%; 
+    margin-right: 5px;
+}
+.add-btn { 
+    width: 25%; 
+    margin-left: 5px; 
+    margin-top: 0;
+}
+.sp-collected { 
+    background-color: #333; 
+    color: #00ff99; 
+    padding: 10px 15px; 
+    border: 1px solid #00ff99; 
+    cursor: not-allowed; 
+    width: 100%; 
+    margin-top: 15px;
+}
+.sp-btn-container { 
+    margin-top: 15px; 
+}
+
